@@ -69,4 +69,23 @@ This list has the following fields
 
 
 
+## Installation On Ubuntu
+I am using python version 3.8.10. Below are the commands after cloning the repository.
+
+```
+python3 -m venv venv
+
+source venv/bin/activate
+
+pip install -r requirements.txt
+
+```
+
+## Running it
+Run the notebook *wilco_stock_report_parser.ipynb* to create a clean version of the stock report.
+The file will be created in the out directory.
+
+Then run the notebook *create_master_inventory.ipynb* to create the final output which is 'sample1/out/master_{date}.xlsx'
+
+
 

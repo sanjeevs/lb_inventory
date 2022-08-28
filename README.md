@@ -13,6 +13,9 @@ pip install -r requirements.txt
 
 ```
 
+> :warning The **"private"** directory is not part of git hub. This has to be downloaded separately from my google drive.
+
+
 ## Final Output
 Create an excel sheet with the following columns
 
@@ -32,9 +35,6 @@ The following files are needed
 
 * Inventory report from Wilco that is sent every friday
 
-* meta/lb_inventory_categories.xlsx.
-
-    * This maps the SKU to the Type and Category.
 
 * private/'PRICE LIST FOR DRY GOODS.xlsx' This is the unmodified from L&B
     * Provides wt/pcs in gms and other pricing info
@@ -55,9 +55,6 @@ This list has the following fields
 
 * OnHand
 
-* Type
-
-* Category
 
 ### Extract Pricing Info
 Clean up LB provided cost sheet to extract the pricing info per SKU. For this run **mk_lb_inventory_pricing.ipynb* to read in the pricing and generate the output *lb_sku_pricing.xlsx*.
@@ -73,21 +70,9 @@ This list has the following fields
 ## Final Step
 Run the notebook **mk_lb_inventory_master.ipynb** to read in the intermediate files and write out the fnal master file.
 
+Also reads the following files for categories.
 
+* private/lb_inventory_categories.xlsx.
 
-
-
-
-
-
-
-
-
-## Running it
-Run the notebook *wilco_stock_report_parser.ipynb* to create a clean version of the stock report.
-The file will be created in the out directory.
-
-Then run the notebook *create_master_inventory.ipynb* to create the final output which is 'sample1/out/master_{date}.xlsx'
-
-
+    * This maps the SKU to the Type and Category.
 

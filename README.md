@@ -1,6 +1,17 @@
 ## Overview
 Parse the inventory report from Wilco and derive some insights.
 
+## Installation On Ubuntu
+I am using python version 3.8.10. Below are the commands after cloning the repository.
+
+```
+python3 -m venv venv
+
+source venv/bin/activate
+
+pip install -r requirements.txt
+
+```
 
 ## Final Output
 Create an excel sheet with the following columns
@@ -60,6 +71,7 @@ This list has the following fields
 * price_per_pc
 
 ## Final Step
+Run the notebook **mk_lb_inventory_master.ipynb** to read in the intermediate files and write out the fnal master file.
 
 
 
@@ -69,17 +81,7 @@ This list has the following fields
 
 
 
-## Installation On Ubuntu
-I am using python version 3.8.10. Below are the commands after cloning the repository.
 
-```
-python3 -m venv venv
-
-source venv/bin/activate
-
-pip install -r requirements.txt
-
-```
 
 ## Running it
 Run the notebook *wilco_stock_report_parser.ipynb* to create a clean version of the stock report.

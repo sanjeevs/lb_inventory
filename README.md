@@ -2,22 +2,71 @@
 Parse the inventory report from Wilco and derive some insights.
 
 
-## Meta Data
-The file "lb_inventory_meta.xlsx" holds all the meta information about the inventory. 
+## Final Output
+Create an excel sheet with the following columns
 
-Each item in the inventory has a SKU and is a case. Each case has N pcs. 
+* SKU
+* Description
+* OnHand
+* Type
+* Category
+* wt_pc_in_gms
+* pcs_per_case
+* price_per_pc
+* price_per_case
+* total_value
 
-It has the following info.
-* Location: Warehouse where the item is stored.
-* SKU: Each item has a unique SKU.
-* Description: item details for humans.
-* Type: Whether it is frozen or dry.
-* Category: Type of item.
-* PcPerCase: Number of pcs n a case.
-* PcWtGms: Weight of the pc in grams.
-* PricePerPc: Cost of the pc in dollars.
-* Expiry: The earliest date at which the item will expire. This is in Month/Date/Year format.
-  It is possible that a SKU can have multiple expiry dates since it has different shipments. 
-  In such cases this reflects the earliest expiry date.
+## Input
+The following files are needed
+
+* Inventory report from Wilco that is sent every friday
+
+* meta/lb_inventory_categories.xlsx.
+
+    * This maps the SKU to the Type and Category.
+
+* private/'PRICE LIST FOR DRY GOODS.xlsx' This is the unmodified from L&B
+    * Provides wt/pcs in gms and other pricing info
+
+* private/'PRICE LIST FOR FROZEN GOODS.xlsx'. This is the unmodified ver from L&B
+    * Provides wt/pcs in gms and pricing info
+
+## Intermediate Steps
+
+### Clean up  Wilco Inventory
+Wilco weekly reports has lot of extra formatiing that needs to be cleaned up. Run the notebook **mk_wilco_inventory_report.ipynb** to create the output inventory list by default *lb_sku_inventory.xlsx*
+
+This list has the following fields
+
+* SKU
+
+* Description
+
+* OnHand
+
+* Type
+
+* Category
+
+### Extract Pricing Info
+Clean up LB provided cost sheet to extract the pricing info per SKU. For this run **mk_lb_inventory_pricing.ipynb* to read in the pricing and generate the output *lb_sku_pricing.xlsx*.
+
+This list has the following fields
+
+* SKU
+* Description
+* wt_pcs_in_case
+* pcs_per_case
+* price_per_pc
+
+## Final Step
+
+
+
+
+
+
+
+
 
 

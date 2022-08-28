@@ -2,3 +2,4 @@ venv/
 out/
 .ipynb_checkpoints/
 .~lock*
+private/

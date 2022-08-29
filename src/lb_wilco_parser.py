@@ -63,16 +63,12 @@ def save_inventory_database_to_xlsx(fname, db):
     outsheet["A1"] = "SKU"
     outsheet["B1"] = "Description"
     outsheet["C1"] = "OnHand"
-    outsheet["D1"] = "Type"
-    outsheet["E1"] = "Category"
 
-    for row, (sku, description, onhand, item_type, category) in enumerate(db, start=2):
+    for row, (sku, description, onhand) in enumerate(db, start=2):
         outsheet[f"A{row}"] = sku
         outsheet[f"A{row}"].number_format = '@'
         outsheet[f"B{row}"] = description
         outsheet[f"C{row}"] = onhand
-        outsheet[f"D{row}"] = item_type
-        outsheet[f"E{row}"] = category
     outbook.save(fname)
 
 def create_categories_database(sheet):
